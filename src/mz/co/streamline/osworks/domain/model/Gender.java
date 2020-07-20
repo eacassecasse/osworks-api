@@ -5,10 +5,13 @@
  */
 package mz.co.streamline.osworks.domain.model;
 
+import javax.persistence.Embeddable;
+
 /**
  *
  * @author edmilson.cassecasse
  */
+@Embeddable
 public enum Gender {
     
     F, M;

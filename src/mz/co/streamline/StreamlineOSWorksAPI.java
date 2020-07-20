@@ -8,6 +8,7 @@ package mz.co.streamline;
 import javax.persistence.Persistence;
 import mz.co.streamline.osworks.core.connection.ConnectionFactoryBuilder;
 import mz.co.streamline.osworks.domain.model.Client;
+import mz.co.streamline.osworks.domain.model.Gender;
 import mz.co.streamline.osworks.domain.model.Physical;
 
 /**
@@ -21,7 +22,15 @@ public class StreamlineOSWorksAPI {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println(ConnectionFactoryBuilder.CONNECTION_FACTORY);
+        Physical physical = new Physical();
+        physical.setName("Edmilson de Azevedo");
+        physical.setSurname("Cassecasse");
+        physical.setId(1L);
+        physical.setGender(Gender.M);
+        physical.setIdentificationNo("110204986669N");
+        //physical.setVatNumber(150155551);
+        
+        System.out.println(physical);
     }
     
 }
