@@ -5,27 +5,25 @@
  */
 package mz.co.streamline.osworks.domain.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  *
  * @author edmilson.cassecasse
  */
 
-@EqualsAndHashCode(of = {"id"})
+
 public abstract class Client {
     
-    @Getter
-    @Setter
+    @NotNull
     protected Integer id;
-    @Getter
-    @Setter
+    @NotNull(message = "Name must be filled")
+    @NotBlank(message = "Name must not be blank")
+    @Length(min = 3, max = 65, message = "Name contain between {min} and {max} characters")
     protected String name;
-    @Getter
-    @Setter
+    @NotNull(message = "Vat Number must be filled")
     protected int vatNumber;
     
 }
