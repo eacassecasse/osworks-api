@@ -5,23 +5,18 @@
  */
 package mz.co.streamline.osworks.core.connection;
 
+
 /**
  *
  * @author edmilson.cassecasse
  */
-public class ConnectionFactoryBuilder {
+public interface ConnectionFactoryBuilder {
     
-    
-    private ConnectionFactoryBuilder() {
-    }
-    
-    
-    
-    public static ConnectionFactoryBuilder getInstance() {
-        return ConnectionFactoryBuilderHolder.INSTANCE;
-    }
-    
-    private static class ConnectionFactoryBuilderHolder {
-        public static ConnectionFactoryBuilder INSTANCE = new ConnectionFactoryBuilder();
+    @Deprecated
+    static ConnectionFactory CONNECTION_FACTORY = ConnectionFactory.getInstance();
+ 
+    public static ConnectionFactory createPersistenceUnit(String persistence_unit) {
+        CONNECTION_FACTORY.setPersistence_unit(persistence_unit);
+        return CONNECTION_FACTORY;
     }
 }

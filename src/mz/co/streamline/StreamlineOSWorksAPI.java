@@ -5,6 +5,8 @@
  */
 package mz.co.streamline;
 
+import javax.persistence.Persistence;
+import mz.co.streamline.osworks.core.connection.ConnectionFactoryBuilder;
 import mz.co.streamline.osworks.domain.model.Client;
 import mz.co.streamline.osworks.domain.model.Physical;
 
@@ -19,8 +21,7 @@ public class StreamlineOSWorksAPI {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Physical physical = new Physical();
-        System.out.println(physical.hashCode());
+        System.out.println(ConnectionFactoryBuilder.CONNECTION_FACTORY);
     }
     
 }
