@@ -22,6 +22,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -64,6 +65,7 @@ public class ServiceOrder implements Serializable {
     @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
     @Getter @Setter private Client client;
     @OneToMany(mappedBy = "serviceOrder", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Valid
     @Getter @Setter private List<Comment> comments;
      
 }

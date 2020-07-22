@@ -18,6 +18,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -51,12 +52,16 @@ public abstract class Client implements Serializable {
     @Column(name = "vatNumber", columnDefinition = "int",nullable = false, unique = true)
     @Getter @Setter protected int vatNumber;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Valid
     @Getter @Setter protected List<Address> addresses;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Valid
     @Getter @Setter protected List<Contact> contacts;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Valid
     @Getter @Setter protected List<Email> emails;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Valid
     @Getter @Setter protected List<ServiceOrder> orders;
     
 }
